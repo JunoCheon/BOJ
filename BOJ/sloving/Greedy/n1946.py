@@ -1,3 +1,5 @@
+#https://www.acmicpc.net/problem/1946
+
 # def isok(score):
 #     l = len(score)
 #     for i in range(l):
