@@ -8,24 +8,20 @@ def solution(s):
     for i in range(1,(l//2)+1):
         if s[:i] == s[i:2*i] or i==1:
             
-            ind = 0
-            tmp =""
-            tmp_result = 0
-            double = 1
+            checkind = 0
+            ind = i
+            numcnt = 0
+            length = 0
             while ind < len(s):
+                ind = checkind
                 
-                if not tmp:
-                    tmp += s[ind:ind+i]
-                    tmp_result += i
+                if s[ind:ind+i] == s[checkind:checkind+i]:
+                    numcnt += 1
                     ind += i
-                elif tmp[-i:] == s[ind:ind+i]:
-                    while tmp[-i:]==s[ind+i*double:ind+i*(double+1)]:
-                        double += 1
-                    ind += i*double
                     
-                    if not double == 1:
-                        tmp_result += len(str(double))
-                else:
+                elif s[ind:ind+i] != s[checkind:checkind+i]:
+                    
+                    
                     tmp += s[ind:ind+i]
                     tmp_result += min(i,len(s)-ind)
                     ind += i
